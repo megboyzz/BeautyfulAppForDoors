@@ -59,6 +59,7 @@ dependencies {
     implementation("cafe.adriel.voyager:voyager-androidx:$voyagerVersion")
     implementation("cafe.adriel.voyager:voyager-livedata:$voyagerVersion")
 
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")

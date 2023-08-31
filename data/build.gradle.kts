@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("io.realm.kotlin")
     kotlin("kapt")
 }
 
@@ -43,6 +44,9 @@ dependencies {
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
+
+    implementation("io.realm.kotlin:library-base:1.10.0")
+    implementation("io.realm.kotlin:library-sync:1.10.0")
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
