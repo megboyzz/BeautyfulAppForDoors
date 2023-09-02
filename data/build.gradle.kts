@@ -36,6 +36,7 @@ android {
 
 dependencies {
 
+    implementation(project(mapOf("path" to ":domain")))
     val ktorVersion = "2.3.3"
 
     kapt("com.google.dagger:dagger-compiler:2.47")

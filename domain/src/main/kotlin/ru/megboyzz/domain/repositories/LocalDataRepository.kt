@@ -5,7 +5,11 @@ import ru.megboyzz.domain.entites.Door
 
 interface LocalDataRepository {
 
-    fun getAllLocalCameras(): List<Camera>
+    fun addCameraToLocalStorage(camera: Camera)
+
+    fun addDoorToLocalStorage(door: Door)
+
+    fun getAllCamerasLocaly(): List<Camera>
 
     fun setNewNameToCamera(cameraId: Int, newName: String): Boolean
 

@@ -10,7 +10,7 @@ class GetListOfCamerasUseCase(
 
     operator fun invoke(): List<Camera> {
 
-        val cameras = localDataRepository.getAllLocalCameras()
+        val cameras = localDataRepository.getAllCamerasLocaly()
 
         return cameras.ifEmpty { updateCameraListUseCase() }
 
