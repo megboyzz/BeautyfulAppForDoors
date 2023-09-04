@@ -1,10 +1,12 @@
 package ru.megboyzz.data.network.response.camera
 
+import com.google.gson.annotations.SerializedName
 import ru.megboyzz.domain.entites.Camera
 
 data class CameraInfo(
     val id: Int,
     val name: String,
+    @SerializedName("snapshot")
     val snapshotImageLink: String,
     val room: String?,
     val favorites: Boolean,

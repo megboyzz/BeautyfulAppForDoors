@@ -4,6 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
+import io.ktor.client.statement.bodyAsText
 import kotlinx.coroutines.runBlocking
 import ru.megboyzz.data.network.response.camera.CameraResponse
 import ru.megboyzz.data.network.response.door.DoorResponse
@@ -16,10 +17,12 @@ class RemoteDataRepositoryImpl @Inject constructor(
     private val httpClient: HttpClient
 ): RemoteDataRepository {
 
-    private val cameraMethodUrl = "http://cars.cprogroup.ru/api/rubetek/doors/"
-    private val doorMethodUrl = "http://cars.cprogroup.ru/api/rubetek/cameras/"
+    private val cameraMethodUrl = "http://cars.cprogroup.ru/api/rubetek/cameras/"
+    private val doorMethodUrl = "http://cars.cprogroup.ru/api/rubetek/doors/"
     override fun getAllCamerasRemotely(): List<Camera> {
         val cameraResponse = runBlocking {
+            val bodyAsText = httpClient.get(cameraMethodUrl).bodyAsText()
+            println(bodyAsText)
             httpClient.get(cameraMethodUrl).body<CameraResponse>()
         }
 

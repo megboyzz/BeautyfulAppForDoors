@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "ru.megboyzz.app"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ru.megboyzz.app"
@@ -51,13 +51,16 @@ android {
 
 dependencies {
 
-    val voyagerVersion = "1.0.0-rc06"
+    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":domain")))
 
-    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-androidx:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-livedata:$voyagerVersion")
+    implementation("com.google.accompanist:accompanist-pager:0.21.2-beta")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.21.2-beta")
+
+    implementation("androidx.compose.runtime:runtime-livedata:1.4.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-alpha01")
+
+    implementation("me.saket.swipe:swipe:1.2.0")
 
     implementation("io.coil-kt:coil-compose:2.4.0")
 

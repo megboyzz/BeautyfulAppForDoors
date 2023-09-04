@@ -5,6 +5,12 @@ plugins {
     kotlin("kapt")
 }
 
+buildscript{
+    repositories{
+        maven("https://maven.google.com")
+    }
+}
+
 android {
     namespace = "ru.megboyzz.data"
     compileSdk = 33
@@ -26,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -38,12 +44,18 @@ dependencies {
 
     implementation(project(mapOf("path" to ":domain")))
     val ktorVersion = "2.3.3"
+    val roomVersion = "2.3.0"
 
     kapt("com.google.dagger:dagger-compiler:2.47")
     implementation("com.google.dagger:dagger:2.47")
 
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-gson:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
 
     implementation("io.realm.kotlin:library-base:1.10.0")
